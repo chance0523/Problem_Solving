@@ -1,2 +1,4 @@
-num1,num2=input().split('.')
-print(num1+'\n'+num2)
+inp = input()
+n = len(inp)
+for i in range(n):
+    print("["+str(10 ** (n-1-i)*int(inp[i]))+"]")
