@@ -1,2 +1,5 @@
-num = int(input(), 16)
-print("%o" % num)
+b,a=map(int,input().split())
+if b>=a:
+    print("1")
+else:
+    print("0")
