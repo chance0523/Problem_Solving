@@ -1,2 +1,6 @@
-a, b = map(int, input().split())
-print(a if a > b else b)
+a = list(map(int, input().split()))
+for c in a:
+    if c != 0:
+        print(c)
+    else:
+        break
