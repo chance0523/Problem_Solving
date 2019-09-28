@@ -24,5 +24,3 @@ while arr:
                     visited[ax][ay]=visited[a][b]+1
                     arr.append((ax,ay))
 
-print(visited)
-print(matrix)
