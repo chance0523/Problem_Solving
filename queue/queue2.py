@@ -1,28 +1,28 @@
-i = int(input())
-queue = []
-for j in range(i):
-    cmd = input().split()
-    if cmd[0] == 'push':
-        queue.append(cmd[1])
-    elif cmd[0] == 'pop':
-        if len(queue) != 0:
-            print(queue.pop(0))
+from sys import stdin
+qu = []
+for _ in range(int(stdin.readline())):
+    arr = stdin.readline().split()
+    if arr[0] == 'push':
+        qu.append(arr[1])
+    elif arr[0] == 'pop':
+        if qu:
+            print(qu.pop(0))
         else:
             print(-1)
-    elif cmd[0] == 'size':
-        print(len(queue))
-    elif cmd[0] == 'empty':
-        if len(queue) == 0:
-            print(1)
-        else:
-            print(0)
-    elif cmd[0] == 'front':
-        if len(queue) != 0:
-            print(queue[0])
+    elif arr[0] == 'size':
+        print(len(qu))
+    elif arr[0] == 'empty':
+        print(1-int(bool(qu)))
+    elif arr[0] == 'front':
+        if qu:
+            print(qu[0])
         else:
             print(-1)
-    elif cmd[0] == 'back':
-        if len(queue) != 0:
-            print(queue[-1])
+    elif arr[0] == 'back':
+        if qu:
+            print(qu[-1])
+        else:
+            print(-1)
     else:
-        print(-1)
+        pass
+
