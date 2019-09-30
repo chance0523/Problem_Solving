@@ -28,18 +28,19 @@ while ans:
  """
 
 from collections import deque
-N,K=map(int,input().split())
-q=deque()
-ans=[]
+N, K = map(int, input().split())
+q = deque()
+ans = []
 for i in range(N):
     q.append(i+1)
-while len(ans)!=N-1:
-    for i in range(K):
-        a=q.popleft()
+while len(ans) != N:
+    for i in range(K-1):
+        a = q.popleft()
         q.append(a)
+    a=q.popleft()
     ans.append(a)
-print(ans)
-print("<",end="")
+
+print("<", end="")
 for i in range(len(ans)-1):
-    print(ans[i],end=", ")
-print(ans[len(ans)-1],end=">")
+    print(ans[i], end=", ")
+print(ans[len(ans)-1], end=">")
