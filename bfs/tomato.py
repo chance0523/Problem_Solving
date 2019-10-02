@@ -1,42 +1,51 @@
-m, n = map(int, input().split())
+import sys
+import collections
 
-box = [[0]*m for _ in range(n)]
+input = sys.stdin.readline
 
-for i in range(n):
-    box[i] = list(map(int, input().split()))
-
-dx = [0, 0, 1, -1]
-dy = [1, -1, 0, 0]
+M, N = map(int, input().split())
 
 unriped = 0
-tomato = []
 
-for i in range(n):
-    for j in range(m):
-        if box[i][j] == 1:
-            tomato.append((i, j))
-        elif box[i][j] == 0:
+farm = []
+tomato = collections.deque([])
+
+for i in range(N):
+
+    farm.append(list(map(int, input().split())))
+
+    for t in range(M):
+        if farm[i][t] == 1:
+            tomato.append((i, t))
+        elif farm[i][t] == 0:
             unriped += 1
 
 days = 1
 
 while tomato:
 
-    t = tomato.pop(0)
+    dx = [0, 0, 1, -1]
+    dy = [1, -1, 0, 0]
 
-    x, y = t[0], t[1]
+    t = tomato.popleft()
+
+    x = t[0]
+    y = t[1]
 
     for i in range(4):
-        nx = x+dx[i]
-        ny = y+dy[i]
 
-        if nx < n and nx >= 0 and ny < m and ny >= 0:
-            if box[nx][ny] == 0:
-                box[nx][ny] = box[x][y]+1
-                tomato.append((nx, ny))
-                days = max(box[nx][ny], days)
-                unriped -= 1
+        nx = x + dx[i]
+        ny = y + dy[i]
 
+        if nx >= N or nx < 0 or ny >= M or ny < 0:
+            continue
+        if farm[nx][ny] != 0:
+            continue
+
+        farm[nx][ny] = farm[x][y] + 1
+        tomato.append((nx, ny))
+        days = max(farm[nx][ny], days)
+        unriped -= 1
 
 if unriped == 0:
     print(days-1)
