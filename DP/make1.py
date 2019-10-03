@@ -1,5 +1,5 @@
 N = int(input())
-count = [0 for _ in range(N+1)]
+count = [-1 for c in range(1000001)]
 count[1] = 0
 count[2] = 1
 count[3] = 1
@@ -18,5 +18,5 @@ for i in range(4,N+1):
     else:
         count[i]=count[i-1]
     count[i]+=1
-    
+
 print(count[N])
