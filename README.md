@@ -1,1 +1,1 @@
-# CoTe
+# Coding Test
