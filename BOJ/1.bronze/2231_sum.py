@@ -1,3 +1,5 @@
+# 2231번. 분해합
+
 num = int(input())
 answer = 0
 
