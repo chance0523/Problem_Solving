@@ -4,15 +4,13 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '2748_fibo1'
-category = 'DP'
-tier = 'silver5'
+file = '1259_Palindrome'
+category = 'Implement'
+tier = 'bronze'
 
 
 # ---------------------------
-
 # 여기 아래부터는 수정 필요 X
-
 # ---------------------------
 
 # --------------------- #
