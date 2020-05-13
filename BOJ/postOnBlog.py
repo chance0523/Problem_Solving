@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1259_Palindrome'
+file = '9012_bracket'
 category = 'Implement'
-tier = 'bronze'
+tier = 'silver4'
 
 
 # ---------------------------
@@ -58,6 +58,7 @@ related: true
 categories: Algorithm BOJ {category} {tier}
 meta_keywords: 알고리즘,백준,파이썬,{problem_num}번
 date: {time} -0400
+last_modified_at: {date}T{time[11:]}+08:00
 ---
 
 # {problem_name}
