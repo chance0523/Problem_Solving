@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '4949_balance'
-category = 'string'
-tier = 'silver4'
+file = '1929_findPrimary'
+category = 'Implement'
+tier = 'silver2'
 
 
 # ---------------------------
