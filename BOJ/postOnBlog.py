@@ -4,8 +4,8 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '9012_bracket'
-category = 'Implement'
+file = '4949_balance'
+category = 'string'
 tier = 'silver4'
 
 
