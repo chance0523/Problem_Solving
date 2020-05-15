@@ -4,8 +4,8 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1929_findPrimary'
-category = 'Implement'
+file = '10971_tsp2'
+category = 'bruteforce'
 tier = 'silver2'
 
 
@@ -72,7 +72,9 @@ f.write(f"""
 \n### 풀이 코드
 
 ```python
-# {problem_name}""")
+# {problem_name}\n\n""")
+
+
 for row in problem_code:
     f.write(row)
 f.write("```")
