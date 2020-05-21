@@ -4,8 +4,8 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '10971_tsp2'
-category = 'bruteforce'
+file = '11279_maxHeap'
+category = 'heap'
 tier = 'silver2'
 
 
