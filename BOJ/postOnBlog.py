@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1107_rimocon'
-category = 'bruteforce'
-tier = 'gold5'
+file = '1016_squarnono'
+category = 'Implement'
+tier = 'gold1'
 
 
 # ---------------------------
@@ -29,7 +29,9 @@ elif tier[0] == "s":
 elif tier[0] == "g":
     f = open(
         f"D:/VSCode/Algorithms/BOJ/3.gold/{tier}/{file_num+file_name}.py", "r", encoding='utf-8')
-
+elif tier[0] == "p":
+    f = open(
+        f"D:/VSCode/Algorithms/BOJ/4.platinum/{tier}/{file_num+file_name}.py", "r", encoding='utf-8')
 tier = (tier[0].upper())+tier[1:]
 problem_num = file_num[:-1]
 
