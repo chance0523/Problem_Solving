@@ -1,3 +1,6 @@
+# 1918번. 후위 표기식
+
+
 a = input().rstrip()
 
 priority = {

@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1016_squarnono'
-category = 'Implement'
-tier = 'gold1'
+file = '1918_postfixnotation'
+category = 'stack'
+tier = 'gold4'
 
 
 # ---------------------------
