@@ -1,27 +1,8 @@
-a = input().rstrip()
+n, k = map(int, input().split())
+wvList = [[0 for i in range(2)] for i in range(n)]
+for i in range(n):
+    wvList[i][0], wvList[i][1] = map(int, input().split())
 
-priority = {
-    '*': 2,
-    '/': 2,
-    '+': 1,
-    '-': 1,
-    '(': 0
-}
-stack = []
+mv = 0
 
-for c in '('+a+')':
-    # print('\n', stack)
-    if 'A' <= c <= 'Z':
-        print(c, end='')
-    elif c == '(':
-        stack.append(c)
-    elif c == ')':
-        while True:
-            o = stack.pop()
-            if o == '(':
-                break
-            print(o, end='')
-    else:
-        while stack[-1] != '(' and priority[c] <= priority[stack[-1]]:
-            print(stack.pop(), end='')
-        stack.append(c)
+print(wvList)
