@@ -1,6 +1,7 @@
+# 1026번. 보물
+
+
 n = int(input())
-
-
 aList = list(map(int, input().split()))
 bList = list(map(int, input().split()))
 
