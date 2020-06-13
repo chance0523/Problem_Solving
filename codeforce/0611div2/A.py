@@ -8,3 +8,7 @@ for i in range(t):
     ans = 0
 
     print(ans)
+'''
+1000
+0111
+'''
