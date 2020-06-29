@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '17478_whatisrecur'
-category = 'recursion'
-tier = 'silver5'
+file = '2309_sevenDwarf'
+category = 'bruteforce'
+tier = 'bronze'
 
 
 # ---------------------------
