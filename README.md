@@ -1,6 +1,6 @@
 # Algorithms / PS
 
 - BOJ
-- Programmers
-- SWEA
 - CodeForces
+- SWEA
+- Programmers
