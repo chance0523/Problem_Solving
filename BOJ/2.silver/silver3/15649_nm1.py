@@ -1,3 +1,6 @@
+# 15649번. N과 M (1)
+
+
 from itertools import permutations
 import sys
 input = sys.stdin.readline
