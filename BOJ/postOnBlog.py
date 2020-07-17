@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '11509_ballon'
-category = 'greedy'
-tier = 'silver1'
+file = '15655_nm6'
+category = 'Implement'
+tier = 'silver3'
 
 
 # ---------------------------
