@@ -1,10 +1,13 @@
-from itertools import permutations
-import sys
-input = sys.stdin.readline
+n,k,m = map(int,input().split())
 
-n, m = map(int, input().split())
-nList = [i for i in range(1, n+1)]
-cList = list(permutations(nList, m))
-
-for c in cList:
-    print(*c)
+# nCk = nCn-k
+if n//2<k:
+    k=n-k
+s=1
+for i in range(k):
+    s*=(n-i)
+    
+mom=1
+for i in range(2,k+1):
+    mom*=i
+print((s//mom)%m)
