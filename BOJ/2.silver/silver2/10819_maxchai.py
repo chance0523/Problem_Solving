@@ -1,4 +1,9 @@
+# 10819번. 차이를 최대로
+
+
 from itertools import permutations
+import sys
+input = sys.stdin.readline
 
 n = int(input())
 nList = list(map(int, input().split()))

@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1662_compression'
-category = 'recursive'
-tier = 'gold5'
+file = '10819_maxchai'
+category = 'bruteforce'
+tier = 'silver2'
 
 
 # ---------------------------
