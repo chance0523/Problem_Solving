@@ -2,9 +2,9 @@ package com.boj;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-// 풀이 미완
 public class BOJ_12825_nextpermutation {
 	static BufferedReader br;
 	static StringTokenizer str;
@@ -23,46 +23,38 @@ public class BOJ_12825_nextpermutation {
 		}
 
 		// 동작
-		while (np(arr)) {
-			for (int i = 0; i < n; i++) {
-				System.out.print(arr[i] + " ");
-			}
-			System.out.println();
-//			return;
-		}
-	}
-
-	private static boolean isnot312() {
-		for (int i = 0; i < n - 2; i++) {
-			for (int j = i; j < n - 1; j++) {
-				for (int k = j; k < n; k++) {
-					if (arr[i] > arr[j] && arr[i] > arr[k] && arr[j] < arr[k]) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	private static boolean np(int numbers[]) {
 		int i = n - 1;
-		while (i > 0 && numbers[i - 1] >= numbers[i])
+		while (i > 0 && arr[i - 1] >= arr[i])
 			--i;
 
-		if (i == 0)
-			return false;
-
 		int j = n - 1;
-		while (numbers[i - 1] >= numbers[j])
+		while (arr[i - 1] >= arr[j])
 			--j;
-		swap(numbers, i - 1, j);
+		swap(arr, i - 1, j);
+		
+		
+		// 뒤에 정렬하는 부분
+		// i-1(4)과 j(5)를 swap
+		ArrayList<Integer> tarr = new ArrayList<Integer>();
+		for (int k = 0; k <= i-1; k++) {
+			tarr.add(arr[k]);
+		}
+		
+		// 작은 것들 넣기
+		for (int k = j; k < n; k++) {
+			tarr.add(arr[k]);
+		}
+		
+		// 큰 수가 있다면
+		if(Math.abs(i-1-j)>1) {
+			for (int k = j-1; k >= i; k--) {
+				tarr.add(arr[k]);
+			}
+		}
 
-		int k = n - 1;
-//		while (i < k) {
-//			swap(numbers, i++, k--);
-//		}
-		return true;
+		for (int k = 0; k < n; k++) {
+			System.out.print(tarr.get(k)+" ");
+		}
 	}
 
 	private static void swap(int numbers[], int i, int j) {
