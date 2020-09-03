@@ -4,8 +4,8 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '13023_ABCDE'
-category = 'graph'
+file = '2230_pickNum''
+category = 'sort'
 tier = 'gold5'
 
 

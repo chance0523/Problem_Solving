@@ -24,9 +24,11 @@ public class BOJ_15688_수정렬하기5 {
 		for (int i = 0; i < arr.length; i++) {
 			if(arr[i]>0) {
 				for (int j = 0; j < arr[i]; j++) {
-					System.out.println(i-1000000);
+					bw.write(i-1000000+"\n");
 				}
 			}
 		}
+		bw.flush();
+		bw.close();
 	}
 }
