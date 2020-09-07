@@ -4,8 +4,8 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '11758_CCW''
-category = 'geo'
+file = '1034_램프'
+category = 'bruteforce'
 tier = 'gold5'
 
 
