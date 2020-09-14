@@ -15,10 +15,6 @@ for i in range(5):  # 5줄
     for j in range(0, 39, 4):  # 3개씩
         numbers[j//4][i] = list(init[i*39+j:i*39+j+3])
 
-# for i in range(5):
-#     for j in range(3):
-#         print(numbers[0][i][j], end='')
-#     print()
 n = int(input())
 
 # n 개 숫자 담아줄 리스트
@@ -52,16 +48,16 @@ for i in range(n):
     for j in range(len(temp[i])):
         c[i] += temp[i][j]
 
-ans = 0
+flag=True
 for i in range(n):
-    ans *= 10
-    ans += c[i]/len(temp[i])
-print(ans)
-
-'''
-###
-#.#
-#.#
-#.#
-###
-'''
+    if len(temp[i])==0:
+        flag=False
+        break
+if flag:
+    ans = 0
+    for i in range(n):
+        ans *= 10
+        ans += c[i]/len(temp[i])
+    print(ans)
+else:
+    print(-1)
