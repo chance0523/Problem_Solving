@@ -39,6 +39,7 @@ for i in range(m):
                 t[i][2] = name[idx]
                 break
             idx += 1
+            
 ans = [0 for i in range(m)]
 
 for i in range(m):

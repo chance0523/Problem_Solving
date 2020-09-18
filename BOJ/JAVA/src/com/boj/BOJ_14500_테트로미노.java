@@ -159,6 +159,7 @@ public class BOJ_14500_테트로미노 {
 				ans = Math.max(cnt, ans);
 			}
 		}
+		
 		// 5-3
 		for (int i = 0; i < n - 2; i++) {
 			for (int j = 0; j < m - 1; j++) {
