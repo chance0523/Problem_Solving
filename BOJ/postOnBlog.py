@@ -4,8 +4,8 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '2477_참외밭'
-category = 'geo'
+file = '2635_수이어가기'
+category = 'Implement'
 tier = 'silver5'
 
 
