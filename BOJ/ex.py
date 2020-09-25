@@ -2,22 +2,33 @@ import sys
 input = sys.stdin.readline
 
 
-n, d = map(int, input().split())
-nList = [0 for i in range(n)]
-for i in range(n):
-    nList[i] = list(map(int, input().split()))
-nList.sort()
-
-idx = []
-maxhappy = nList[0][1]
-s = maxhappy  # 합을 바꿀 변수
-j = 0
-# sliding
-for i in range(1, n):
-    s += nList[i][1]
-    while nList[i][0]-nList[j][0] >= d:  # 앞에 있는 요소 제거
-        s -= nList[j][1]
-        j += 1
-    maxhappy = max(maxhappy, s)  # 최대값 비교
-
-print(maxhappy)
+for _ in range(int(input())):
+    aList = list(map(int, input().split()))
+    bList = list(map(int, input().split()))
+    a = aList.pop(0)  # a,b는 필요없음
+    b = bList.pop(0)
+    # 별
+    if aList.count(4) > bList.count(4):  # 개수 세주기
+        print('A')
+    elif aList.count(4) < bList.count(4):
+        print('B')
+    else:
+        # 동그라미
+        if aList.count(3) > bList.count(3):
+            print('A')
+        elif aList.count(3) < bList.count(3):
+            print('B')
+        else:
+            # 네모
+            if aList.count(2) > bList.count(2):
+                print('A')
+            elif aList.count(2) < bList.count(2):
+                print('B')
+            else:
+                # 세모
+                if aList.count(1) > bList.count(1):
+                    print('A')
+                elif aList.count(1) < bList.count(1):
+                    print('B')
+                else:
+                    print('D')
