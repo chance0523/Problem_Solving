@@ -1,3 +1,6 @@
+# 10986번. 나머지합
+
+
 n, m = map(int, input().split())
 nList = list(map(int, input().split()))
 
