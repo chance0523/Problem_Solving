@@ -2,32 +2,26 @@ import sys
 input = sys.stdin.readline
 
 
-t = int(input())
-
-
-for _ in range(t):
+for _ in range(int(input())):
     n = int(input())
-    s = list(map(int, input().rstrip()))
-    if n == 1:
-        print(-1)
-        continue
-    su = sum(s)
-    if s[-1] % 2 == 1:
-        ans = False
-        for i in range(n-1):
-            if s[i] % 2 == 1:
-                ans = True
-                break
-        if ans:
-            print(str(s[i])+str(s[-1]))
-        else:
-            print(-1)
-    else:
-        ans = []
-        for i in range(n-1):
-            if s[i] % 2 == 1:
-                ans.append(s[i])
-        if len(ans) >= 2:
-            print(str(ans[0])+str(ans[1]))
-        else:
-            print(-1)
+    aList = [0]+list(map(int, input().rstrip().split()))
+    bList = [0]+list(map(int, input().rstrip().split()))
+    cList = [0]+list(map(int, input().rstrip().split()))
+    ans = [0, aList[1]]
+
+    for i in range(1, n):
+        if ans[i] != aList[i+1]:
+            ans.append(aList[i+1])
+        elif ans[i] != bList[i+1]:
+            ans.append(bList[i+1])
+        elif ans[i] != cList[i+1]:
+            ans.append(cList[i+1])
+    if ans[-1] == ans[1]:
+        ans.pop()
+        if aList[-1] != ans[1] and aList[-1] != ans[-1]:
+            ans.append(aList[-1])
+        elif bList[-1] != ans[1] and bList[-1] != ans[-1]:
+            ans.append(bList[-1])
+        elif cList[-1] != ans[1] and cList[-1] != ans[-1]:
+            ans.append(cList[-1])
+    print(*ans[1:])

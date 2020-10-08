@@ -6,20 +6,24 @@ t = int(input())
 
 
 for _ in range(t):
-    n = int(input())
+    n, k = map(int, input().split())
     nList = list(map(int, input().rstrip().split()))
-
-    left = 0
-    right = n-1
-    for i in range(n):
-        if nList[i] < i:
-            break
-        left = i
-    for i in range(n-1, -1, -1):
-        if nList[i] < n-1-i:
-            break
-        right = i
-    if left >= right:
-        print('Yes')
+    ans = 0
+    l = len(set(nList))
+    if k == 1:
+        if l != 1:
+            print(-1)
+        if l == 1:
+            print(1)
     else:
-        print('No')
+        ans = 1
+        l = l-k
+        if l <= 0:
+            print(ans)
+            continue
+        while True:
+            l = l-(k-1)
+            ans += 1
+            if l <= 0:
+                print(ans)
+                break
