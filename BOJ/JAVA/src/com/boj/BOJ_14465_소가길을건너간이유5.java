@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BOJ_14465_¼Ò°¡±æÀ»°Ç³Ê°£ÀÌÀ¯5 {
+public class BOJ_14465_ì†Œê°€ê¸¸ì„ê±´ë„ˆê°„ì´ìœ 5 {
 	static BufferedReader br;
 	static StringTokenizer st;
 	static int n, k, b, sum;
@@ -12,7 +12,7 @@ public class BOJ_14465_¼Ò°¡±æÀ»°Ç³Ê°£ÀÌÀ¯5 {
 	static int ans;
 
 	public static void main(String[] args) throws Exception {
-		// ÀÔ·Â
+		// ì…ë ¥
 		br = new BufferedReader(new InputStreamReader(System.in));
 		st = new StringTokenizer(br.readLine());
 		n = Integer.parseInt(st.nextToken());
@@ -20,12 +20,12 @@ public class BOJ_14465_¼Ò°¡±æÀ»°Ç³Ê°£ÀÌÀ¯5 {
 		b = Integer.parseInt(st.nextToken());
 		sin = new int[n];
 		for (int i = 0; i < b; i++) {
-			sin[Integer.parseInt(br.readLine()) - 1] = 1; // °íÀå Ç¥½Ã
+			sin[Integer.parseInt(br.readLine()) - 1] = 1; // ê³ ì¥ í‘œì‹œ
 		}
 
-		// µ¿ÀÛ
-		// k°³¾¿ ½ºÀ§ÇÎ?
-		// ´©ÀûÇÕ? ½Ã°£ º¹Àâµµ´Â ¶È°°³ª...
+		// ë™ì‘
+		// kê°œì”© ìŠ¤ìœ„í•‘?
+		// ëˆ„ì í•©? ì‹œê°„ ë³µì¡ë„ëŠ” ë˜‘ê°™ë‚˜...
 
 		// init sum
 		sum = 0;
@@ -33,9 +33,9 @@ public class BOJ_14465_¼Ò°¡±æÀ»°Ç³Ê°£ÀÌÀ¯5 {
 			sum += sin[i];
 		}
 		ans = Integer.MAX_VALUE;
-		ans = Math.min(ans, sum); // ºñ±³
+		ans = Math.min(ans, sum); // ë¹„êµ
 
-		// ½ºÀ§ÇÎ
+		// ìŠ¤ìœ„í•‘
 		for (int i = k; i < n; i++) {
 			sum += sin[i];
 			sum -= sin[i - k];
