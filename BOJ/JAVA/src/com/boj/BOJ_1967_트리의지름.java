@@ -17,6 +17,12 @@ public class BOJ_1967_트리의지름 {
 		// 입력
 		br = new BufferedReader(new InputStreamReader(System.in));
 		n = Integer.parseInt(br.readLine());
+		
+		if(n==1) { // 이거 안 써주면 100%에서 런타임 에러...
+			System.out.println(0);
+			System.exit(0);
+		}
+			
 		tree = new ArrayList[n];
 		for (int i = 0; i < n; i++) { // 초기화
 			tree[i] = new ArrayList<>();
