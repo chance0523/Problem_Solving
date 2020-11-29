@@ -1,6 +1,6 @@
 # Algorithms / PS
 
-- BOJ (Gold3)
+- BOJ (Gold1)
 - CodeForces
 - SWEA
 - Programmers
