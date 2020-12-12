@@ -4,8 +4,8 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1963_소수경로'
-category = 'graph'
+file = '1915_가장큰정사각형'
+category = 'dp'
 tier = 'gold5'
 
 
