@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '19637_if문좀대신써줘'
-category = 'binary_search'
-tier = 'silver2'
+file = '1417_국회의원선거'
+category = 'bruteforce'
+tier = 'silver5'
 
 
 # ---------------------------
