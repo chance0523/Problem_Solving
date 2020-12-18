@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1417_국회의원선거'
-category = 'bruteforce'
-tier = 'silver5'
+file = '1009_분산처리'
+category = 'math'
+tier = 'bronze'
 
 
 # ---------------------------
