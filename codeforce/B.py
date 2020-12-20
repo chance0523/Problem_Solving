@@ -2,28 +2,24 @@ import sys
 input = sys.stdin.readline
 
 
-t = int(input())
-
-
-for _ in range(t):
-    n, k = map(int, input().split())
-    nList = list(map(int, input().rstrip().split()))
-    ans = 0
-    l = len(set(nList))
-    if k == 1:
-        if l != 1:
-            print(-1)
-        if l == 1:
-            print(1)
-    else:
-        ans = 1
-        l = l-k
-        if l <= 0:
-            print(ans)
-            continue
+for _ in range(int(input())):
+    n = int(input())
+    while True:
+        flag = True
+        tmp = n
         while True:
-            l = l-(k-1)
-            ans += 1
-            if l <= 0:
-                print(ans)
+            if tmp == 0:
                 break
+            if tmp % 10 == 0:
+                tmp //= 10
+            else:
+                if n % (tmp % 10) == 0:
+                    tmp //= 10
+                else:
+                    flag = False
+                    break
+        if flag:
+            print(n)
+            break
+        else:
+            n += 1
