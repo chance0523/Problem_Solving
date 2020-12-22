@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1009_분산처리'
+file = '9655_돌게임'
 category = 'math'
-tier = 'bronze'
+tier = 'silver5'
 
 
 # ---------------------------

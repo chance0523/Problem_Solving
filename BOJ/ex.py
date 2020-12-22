@@ -1,13 +1,11 @@
-# 1009번. 분산처리
+# 9655번. 돌게임
 
 
-import sys
-input = sys.stdin.readline
+# n = int(input())
+# # 돌은 홀수개씩 줄어듬
+# if n % 2 == 1:
+#     print('SK')
+# else:
+#     print('CY')
 
-for _ in range(int(input())):
-    a, b = map(int, input().split())
-    ans = pow(a,b,10)
-    if ans == 0:
-        print(10)
-    else:
-        print(ans)
+print('SK' if int(input()) % 2 else 'CY')
