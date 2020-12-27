@@ -1,3 +1,8 @@
+# 16193번. 차이를 최대로 2
+
+
+# 코드가 너무 더럽지만 로직만 파악하자...
+
 n = int(input())
 nList = list(map(int, input().split()))
 nList.sort(reverse=True)
@@ -5,13 +10,8 @@ ans = 0
 ansList = []
 '''
 맨 앞에는 중간수가 들어가야하고
-그 다음부터는 n의 홀짝에 따라 다름
-
-n이 짝수일 경우
-중간수, 작 큰 작 ...
-
-n이 홀수일 경우
-중간수, 큰 작 ...
+그 다음부터
+큰작큰작... vs 작큰작큰... 중 최대값을 구해준다.
 '''
 
 
@@ -61,9 +61,9 @@ def getAns(ansList):
 
 if n % 2 == 0:
     initList(nList[n // 2 - 1])
-    func1()
+    func1()  # 큰작큰작
     initList(nList[n // 2 - 1])
-    func2()
+    func2()  # 작큰작큰
 else:
     initList(nList[n // 2])
     func1()
