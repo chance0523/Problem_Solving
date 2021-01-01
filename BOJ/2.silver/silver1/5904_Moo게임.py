@@ -1,4 +1,4 @@
-import sys
+# 5904번. Moo 게임
 
 
 n = int(input())
