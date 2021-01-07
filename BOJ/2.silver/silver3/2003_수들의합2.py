@@ -1,3 +1,6 @@
+# 2003번. 수들의 합 2
+
+
 n, m = map(int, input().split())
 nList = list(map(int, input().split()))
 ans = 0

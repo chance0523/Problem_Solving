@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '5904_Moo게임'
-category = 'dp'
-tier = 'silver1'
+file = '2003_수들의합2'
+category = 'two_pointer'
+tier = 'silver3'
 
 
 # ---------------------------
