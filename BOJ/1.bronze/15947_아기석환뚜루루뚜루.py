@@ -1,3 +1,6 @@
+# 15947번. 아기 석환 뚜루루 뚜루
+
+
 mList = ['baby', 'sukhwan', 'tururu', 'turu',
          'very', 'cute', 'tururu', 'turu',
          'in', 'bed', 'tururu', 'turu',
@@ -9,13 +12,13 @@ num = n % 14
 numList = [2, 3, 6, 7, 10, 11]
 if num in numList:
     k = n // 14
-    if k >= 3:
-        if mList[num] == 'tururu':  # tururu
+    if k >= 3:  # ru가 5번이상 반복 (기본 한번)
+        if mList[num] == 'tururu':
             ans = f'tu+ru*{k+2}'
-        else:  # turu
-            if k == 3:  # ru가 4번만 반복
+        else:
+            if k == 3:
                 ans = mList[num] + 'ru' * k
-            else:  # 5번 이상 반복
+            else:
                 ans = f'tu+ru*{k+1}'
     else:
         ans = mList[num] + 'ru' * k
