@@ -1,24 +1,15 @@
-mList = ['baby', 'sukhwan', 'tururu', 'turu',
-         'very', 'cute', 'tururu', 'turu',
-         'in', 'bed', 'tururu', 'turu',
-         'baby', 'sukhwan']  # 14개 단어
+n = input()
+numList = [0] * 10  # 0~9
 
-n = int(input())-1
-ans = ''
-num = n % 14
-numList = [2, 3, 6, 7, 10, 11]
-if num in numList:
-    k = n // 14
-    if k >= 3:
-        if mList[num] == 'tururu':  # tururu
-            ans = f'tu+ru*{k+2}'
-        else:  # turu
-            if k == 3:  # ru가 4번만 반복
-                ans = mList[num] + 'ru' * k
-            else:  # 5번 이상 반복
-                ans = f'tu+ru*{k+1}'
-    else:
-        ans = mList[num] + 'ru' * k
-else:
-    ans = mList[num]
+for i in range(len(n)):
+    num = int(n[i])
+    numList[num] += 1
+
+ans = (numList[6] + numList[9] + 1) // 2  # 6 9 쓸 때
+
+for i in range(10):
+    if i == 6 or i == 9:
+        continue
+    ans = max(ans, numList[i])
+
 print(ans)
