@@ -1,15 +1,11 @@
-n = input()
-numList = [0] * 10  # 0~9
-
-for i in range(len(n)):
-    num = int(n[i])
-    numList[num] += 1
-
-ans = (numList[6] + numList[9] + 1) // 2  # 6 9 쓸 때
-
-for i in range(10):
-    if i == 6 or i == 9:
-        continue
-    ans = max(ans, numList[i])
-
-print(ans)
+x = int(input())
+stick = [64]
+ans = 0
+while True:
+    if sum(stick) == x:
+        print(len(stick))
+        break
+    cur = stick.pop()
+    stick.append(cur // 2)
+    if sum(stick) < x:
+        stick.append(cur // 2)
