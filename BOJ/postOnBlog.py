@@ -4,9 +4,9 @@ date = str(datetime.now())[:10]
 
 # -----------------------------
 
-file = '1094_막대기'
+file = '1977_완전제곱수'
 category = 'math'
-tier = 'silver5'
+tier = 'bronze'
 
 
 # ---------------------------
