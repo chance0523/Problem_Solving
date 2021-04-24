@@ -1,19 +1,11 @@
-for _ in range(int(input())):
-    n = int(input())
-    nList = list(map(int, input().split()))
-    ans = 0
+n, k = map(int, input().split())
+num = k % 10
+num2 = (2 * k) % 10
+ans = []
+for i in range(1, n + 1):
+    if i % 10 == num or i % 10 == num2:
+        continue
+    ans.append(i)
 
-    while True:
-        if not nList:
-            break
-
-        cur = nList.pop()
-
-        l = len(nList)
-        for i in range(l - 1, -1, -1):
-            if cur >= nList[i]:
-                ans += (cur - nList[i])
-                nList.pop()
-            else:
-                break
-    print(ans)
+print(len(ans))
+print(*ans)
