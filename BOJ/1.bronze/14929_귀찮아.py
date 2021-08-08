@@ -3,8 +3,9 @@
 
 n = int(input())
 xList = list(map(int,input().split()))
+s = sum(xList)
 ans = 0
-for i in range(n-1):
-    for j in range(i+1, n):
-        ans +=  xList[i]*xList[j]
+for i in range(n):
+    s -= xList[i]
+    ans += xList[i] * s
 print(ans)
