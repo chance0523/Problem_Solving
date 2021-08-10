@@ -1,40 +1,55 @@
-import math,sys
-n = int(input())
-if n==1:
-    print(0)
-    sys.exit()
-# 소수 리스트 만들어주기 (에라토스테네스의 체)
-pList = [True for i in range(n+1)]
-pList[1] = False
-for i in range(2, int(math.sqrt(n)+1)):
-    if pList[i]:
-        for j in range(i+i, n+1, i):
-            pList[j] = False
+import sys
 
-onlyPrimes = []
-for i in range(2,n+1):
-    if pList[i]:
-        onlyPrimes.append(i)
+sys.setrecursionlimit(10**8)
 
-ans = 0 
-l = 0
-r = 0
-cur = onlyPrimes[0]
-while True:
-    if l>r:
-        break
-    if cur > n:
-        cur-=onlyPrimes[l]
-        l+=1
-    elif cur < n:
-        r+=1
-        if r==len(onlyPrimes):
-            break
-        cur+=onlyPrimes[r]
+import math
+
+
+def game(cur, turn, dp):
+    if turn:
+        if cur == k:
+            return False
+        elif cur == k - 1:
+            return True
+        result = 0
     else:
-        ans+=1
-        r+=1
-        if r==len(onlyPrimes):
-            break
-        cur+=onlyPrimes[r]
-print(ans)
+        if cur == k:
+            return True
+        elif cur == k - 1:
+            return False
+        result = 1
+
+    if (dp[cur][turn] != -1):
+        return dp[cur][turn]
+
+    for i in range(1, int(math.sqrt(cur)) + 1):
+        if cur % i == 0:
+            if turn:
+                if cur + i <= k:
+                    result |= game(cur + i, 0, dp)
+                else:
+                    break
+            else:
+                if cur + i <= k:
+                    result &= game(cur + i, 1, dp)
+                else:
+                    break
+    if turn:
+        if cur + cur <= k:
+            result |= game(cur + cur, 0, dp)
+    else:
+        if cur + cur <= k:
+            result &= game(cur + cur, 1, dp)
+
+    dp[cur][turn] = result
+
+    return dp[cur][turn]
+
+
+k = int(input())
+dp = [[-1, -1] for j in range(k + 1)]
+ans = game(1, 1, dp)
+if ans:
+    print('Kali')
+else:
+    print('Ringo')
