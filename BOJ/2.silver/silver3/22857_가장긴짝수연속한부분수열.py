@@ -1,11 +1,17 @@
+# 22857번. 가장 긴 짝수 연속한 부분 수열
+
+
 import sys
 input = sys.stdin.readline
+
 n, k = map(int, input().rstrip().split())
 nList = list(map(int, input().rstrip().split()))
+
 l, r = 0, 0
 cur_k = k
 ans = 0
 cnt = 0
+
 while True:
     if r >= len(nList):
         break
