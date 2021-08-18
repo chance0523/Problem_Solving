@@ -1,51 +1,32 @@
-import sys
+# # k, m = map(int,input().split())
+
+# p = [False for _ in range(45000)]
+# p[0] = True
+# p[1] = True
+# for i in range(2, len(p)):
+#     for j in range(i+i, len(p), i):
+#         p[j] = True
+
+# # 만들 수 있는 가장 큰 수 = 98765
+# # 가장 작은 소수(2) * 가장 큰 소수 <= 98765여야한다.
+# # 45000이하의 수만 구해줌
+# pList = []
+# for i in range(len(p)):
+#     if not p[i]:
+#         pList.append(i)
+
+# sList = []
+# for i in range(len(pList)-1):
+#     for j in range(i+1, len(pList)):
+#         s = pList[i]+pList[j]
+#         if s < 99999:
+#             sList.append(s)
+# # print(pList)
+# print(len(pList))
+# # print(sList)
+# print(len(sList))
+# print(sList[-1])
 
 for _ in range(int(input())):
-    start = 2100
-    end = 2399
-    mid = (start+end) // 2
-    # ret = int(sys.stdin.readline().rstrip())
-    cnt = 0
-    flag = True
-    while True:
-        print(f'? {mid}')
-        sys.stdout.flush()
-        ret = int(sys.stdin.readline().rstrip())
-        if end - start == 2:
-            if ret == 1:
-                print(f'? {mid}')
-                start += 1
-                sys.stdout.flush()
-                continue
-            else:
-                print(f'? {mid-1}')
-                end -= 1
-                sys.stdout.flush()
-                continue
-        if end - start == 1:
-            start += 1
-            if ret == 1:
-                print(f'? {end}')
-                sys.stdout.flush()
-                ret = int(sys.stdin.readline().rstrip())
-                if ret == 0:
-                    print(f'! {end-1}')
-                    sys.stdout.flush()
-                    break
-        else:
-            if start>=end or cnt == 18:
-                if flag:
-                    print(f'! {start}')
-                else:
-                    print(f'! {start}')
-                sys.stdout.flush()
-                break
-            if ret == 1:
-                start = mid + 1
-                mid = (start+end) // 2
-                flag = True
-            else:
-                end = mid - 1
-                mid = (start+end) // 2
-                flag = False
-        cnt += 1
+    a,b = map(int,input().split())
+    print('yes')

@@ -5,12 +5,10 @@ input = sys.stdin.readline
 for _ in range(int(input())):
     n = int(input())
     nList = list(map(int,input().rstrip().split()))
-    cnt = 0
-    ans = 0
-    for i in range(n):
-        if nList[i]%2==0:
-            ans = 0
-            cnt += 1
-    if cnt == n or cnt == 0:
-        ans = min(nList)
-    print(ans)
+    a = nList[0]
+    if n==1:
+        print(a)
+        continue
+    for i in range(1,n):
+        a = a&nList[i]
+    print(a)
