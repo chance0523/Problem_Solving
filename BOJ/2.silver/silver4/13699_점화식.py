@@ -10,3 +10,4 @@ for i in range(4,n+1):
         k += t[j]*t[i-j-1]
     t.append(k)
 print(t[n])
+#1
