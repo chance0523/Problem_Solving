@@ -1,8 +1,10 @@
-n = int(input())
-s = []
-for i in range(n):
-    sL = list(input().split())
-    s.append(sL)
-    s[i][0],s[i][1] = s[i][1],s[i][0]
-s.sort()
-print(s[0][1])
+while True:
+    n = int(input())
+    if n == 0:
+        break
+    sList = []
+    for _ in range(n):
+        s = input().rstrip()
+        sList.append([s.lower(), s])
+    sList.sort()
+    print(sList[0][1])
