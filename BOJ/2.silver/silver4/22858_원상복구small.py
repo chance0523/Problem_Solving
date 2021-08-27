@@ -1,3 +1,6 @@
+# 22858번. 원상 복구 (small)
+
+
 n,k = map(int,input().split())
 sList = list(map(int,input().split()))
 dList_temp = list(map(int,input().split()))
