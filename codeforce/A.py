@@ -2,9 +2,14 @@ import sys
 input = sys.stdin.readline
 
 for _ in range(int(input())):
-    l,r = map(int,input().rstrip().split())
-    if r//l == 1:
-        print(r%l)
+    c,d = map(int,input().rstrip().split())
+    if c == d:
+        if c==0:
+            ans = 0
+        else:
+            ans = 1
+    elif (c+d)%2==0:
+        ans = 2
     else:
-        m = r//2+1
-        print(r%m)
+        ans = -1
+    print(ans)
