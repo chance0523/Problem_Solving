@@ -1,3 +1,6 @@
+# 1068번. 트리
+
+
 n = int(input())
 nList = list(map(int,input().split()))
 delete = int(input())
