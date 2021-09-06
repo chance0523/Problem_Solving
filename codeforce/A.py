@@ -2,14 +2,14 @@ import sys
 input = sys.stdin.readline
 
 for _ in range(int(input())):
-    c,d = map(int,input().rstrip().split())
-    if c == d:
-        if c==0:
-            ans = 0
+    n = int(input())
+    cList = list(input().rstrip())
+    ans = ''
+    for i in range(n):
+        if cList[i] == 'L' or cList[i] == 'R':
+            ans += cList[i]
+        elif cList[i] == 'U':
+            ans += 'D'
         else:
-            ans = 1
-    elif (c+d)%2==0:
-        ans = 2
-    else:
-        ans = -1
+            ans += 'U'
     print(ans)

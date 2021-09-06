@@ -1,27 +1,31 @@
-n = int(input())
-nList = list(map(int,input().split()))
-delete = int(input())
-tree = [[] for i in range(n)]
+n,m = map(int,input().split())
+box = [[1e9 for _ in range(n+1)] for _ in range(n+1)]
+for i in range(1, n+1):
+    for j in range(1, n+1):
+        if i == j:
+            box[i][j] = 0
 
-for i in range(n):
-    if nList[i] == -1:
-        start = i
-        continue
-    if i == delete:
-        continue
-    tree[nList[i]].append(i)
+ans = [[0 for _ in range(n+1)] for _ in range(n+1)]
+for i in range(m):
+    a,b,c = map(int,input().split())
+    box[a][b] = c
+    box[b][a] = c
+    ans[a][b] = b
+    ans[b][a] = a
 
-ans = 0
-if start == delete:
-    print(0)
-else:
-    s = []
-    s.append(start)
-    while s:
-        cur = s.pop()
-        if not tree[cur]:
-            ans += 1
+for t in range(n, 0, -1):
+    for s in range(1, n+1):
+        for e in range(1, n+1):
+            if box[s][e] > box[s][t] + box[t][e]:
+                box[s][e] = box[s][t] + box[t][e]
+                ans[s][e] = ans[s][t]
+
+s = ''
+for i in range(1, n+1):
+    for j in range(1, n+1):
+        if i == j:
+            s += '- '
         else:
-            for t in tree[cur]:
-                s.append(t)
-    print(ans)
+            s += str(ans[i][j]) + ' '
+    s += '\n'
+print(s.rstrip())
