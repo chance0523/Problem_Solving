@@ -1,12 +1,17 @@
-n = int(input())
-cnt = 0
-
+nList = [i for i in range(5001)]
+for i in range(len(nList)):
+    num = list(str(i))
+    if len(num) == len(set(num)):
+        nList[i] = True
+    else:
+        nList[i] = False
 while True:
-    if n < 0:
-        print(-1)
+    try:
+        n,m = map(int, input().split())
+        ans = 0
+        for i in range(n, m+1):
+            if nList[i]:
+                ans += 1
+        print(ans)
+    except EOFError:
         break
-    if n % 5 == 0:
-        print(n // 5 + cnt)
-        break
-    n -= 2
-    cnt += 1

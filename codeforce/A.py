@@ -3,13 +3,17 @@ input = sys.stdin.readline
 
 for _ in range(int(input())):
     n = int(input())
-    cList = list(input().rstrip())
-    ans = ''
-    for i in range(n):
-        if cList[i] == 'L' or cList[i] == 'R':
-            ans += cList[i]
-        elif cList[i] == 'U':
-            ans += 'D'
-        else:
-            ans += 'U'
-    print(ans)
+    s = input().rstrip()
+    a = False
+    b = False
+    l = 0
+    r = 0
+    if 'ab' in s:
+        ans = s.index('ab')+1
+        print(ans, ans+1)
+    elif 'ba' in s:
+        ans = s.index('ba')+1
+        print(ans, ans+1)
+    else:
+        print(-1,-1)
+        
