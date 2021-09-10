@@ -1,17 +1,26 @@
-nList = [i for i in range(5001)]
-for i in range(len(nList)):
-    num = list(str(i))
-    if len(num) == len(set(num)):
-        nList[i] = True
-    else:
-        nList[i] = False
-while True:
-    try:
-        n,m = map(int, input().split())
-        ans = 0
-        for i in range(n, m+1):
-            if nList[i]:
+n=int(input())
+name = input().rstrip()
+ans = 0
+for _ in range(n):
+    old = input().rstrip()
+    flag = False
+    for gan in range(1, len(old)):
+        if flag:
+            break
+        flag = True
+        for s in range(len(old)-gan*(len(name)-1)):
+            cnt = 0
+            for i in range(len(name)):
+                if old[s + gan*i] != name[i]:
+                    flag = False
+                    break
+                else:
+                    cnt += 1
+                if cnt == len(name):
+                    flag = True
+                    break
+            if flag:
                 ans += 1
-        print(ans)
-    except EOFError:
-        break
+                break
+
+print(ans)
