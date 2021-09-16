@@ -1,12 +1,15 @@
-s = input()
-ns = ''
-t = input()
-nt = ''
-for i in range(100):
-    ns += s
-    nt += t
-l = len(s)*len(t)
-if ns[:l] == nt[:l]:
-    print(1)
+nList = []
+for i in range(7):
+    nList.append(int(input()))
+
+s = 0
+m = 1000
+for i in range(7):
+    if nList[i] % 2:
+        m = min(m, nList[i])
+        s += nList[i]
+if s:
+    print(s)
+    print(m)
 else:
-    print(0)
+    print(-1)
