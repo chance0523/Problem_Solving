@@ -1,11 +1,12 @@
 import sys
 input = sys.stdin.readline
 
-x,y = map(int,input().rstrip().split('.'))
-if 0<=y<=2:
-    op = '-'
-elif 3<=y<=6:
-    op = ''
+x = int(input())
+if x >= 90:
+    print('expert')
+elif 70<=x<90:
+    print(90-x)
+elif 40<=x<70:
+    print(70-x)
 else:
-    op = '+'
-print(str(x)+op)
+    print(40-x)

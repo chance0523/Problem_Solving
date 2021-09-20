@@ -1,12 +1,16 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-nList=[]
-for i in range(n):
-    nList.append(input().rstrip())
-nSet = list(set(nList))
-if len(nList) != len(nSet):
-    print('Yes')
-else:
-    print('No')
+sList =[]
+for i in range(3):
+    sList.append(input().rstrip())
+t = input().rstrip()
+ans = ''
+for i in range(len(t)):
+    if t[i] == '1':
+        ans += sList[0]
+    elif t[i] == '2':
+        ans += sList[1]
+    else:
+        ans += sList[2]
+print(ans)
