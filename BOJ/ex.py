@@ -1,23 +1,10 @@
-from collections import deque
-
-n, m = map(int,input().split())
-nList = list(map(int,input().split()))
-
-d = deque([i for i in range(1, n+1)])
-
-cnt = 0
-for num in nList:
+for _ in range(int(input())):
+    a, b = map(int,input().split())
+    if a < b:
+        a,b = b, a
+    ans = a
     while True:
-        if d[0] == num:
-            d.popleft()
+        if ans % a == 0 and ans % b == 0:
+            print(ans)
             break
-        else:
-            if d.index(num) < len(d) / 2:
-                while d[0] != num:
-                    d.append(d.popleft())
-                    cnt += 1
-            else:
-                while d[0] != num:
-                    d.appendleft(d.pop())
-                    cnt += 1
-print(cnt)
+        ans += a
