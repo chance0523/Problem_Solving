@@ -1,10 +1,10 @@
-for _ in range(int(input())):
-    a, b = map(int,input().split())
-    if a < b:
-        a,b = b, a
-    ans = a
-    while True:
-        if ans % a == 0 and ans % b == 0:
-            print(ans)
-            break
-        ans += a
+a,b = input().rstrip().split()
+
+m = 1e9
+for i in range(len(b) - len(a) + 1):
+    cnt = 0
+    for j in range(len(a)):
+        if a[j] != b[i + j]:
+            cnt += 1
+    m = min(m, cnt)
+print(m)
