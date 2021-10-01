@@ -1,14 +1,23 @@
 import sys
 input = sys.stdin.readline
-from collections import deque
 
 for _ in range(int(input())):
-    n = int(input())
-    nList = list(map(int,input().rstrip().split()))
-    d = deque([nList[0]])
-    for i in range(1, n):
-        if nList[i] < d[0]:
-            d.appendleft(nList[i])
+    n,m,k = map(int,input().split())
+    de = int(n*(n-3)//2)
+    if n == 1:
+        print('YES')
+        continue
+    if k == 1:
+        print('NO')
+        continue
+    if k == 2:
+        if n <= 3 and m >= 3:
+            print('YES')
         else:
-            d.append(nList[i])
-    print(*d)
+            print('NO')
+    if k == 3:
+        if de <= m - n:
+            print('YES')
+        else:
+            print('NO')
+        
