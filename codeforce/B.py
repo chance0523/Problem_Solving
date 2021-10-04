@@ -2,22 +2,21 @@ import sys
 input = sys.stdin.readline
 
 for _ in range(int(input())):
-    n,m,k = map(int,input().split())
-    de = int(n*(n-3)//2)
-    if n == 1:
+    n,x=map(int,input().split())
+    nList = list(map(int,input().rstrip().split()))
+    if x == 1:
         print('YES')
         continue
-    if k == 1:
-        print('NO')
+    flag = True
+    for i in range(n-1):
+        if nList[i] > nList[i+1]:
+            flag = False
+            break
+    if flag:
+        print('YES')
         continue
-    if k == 2:
-        if n <= 3 and m >= 3:
-            print('YES')
-        else:
+    else:
+        if x >= n:
             print('NO')
-    if k == 3:
-        if de <= m - n:
-            print('YES')
-        else:
-            print('NO')
-        
+            continue
+    print('YES')
