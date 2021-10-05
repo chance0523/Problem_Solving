@@ -1,33 +1,12 @@
-m = int(input())
-m = 1000 - m
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+nList = [int(input()) for i in range(n)]
+nList.sort(reverse=True)
 ans = 0
-if m >= 500:
-    m -= 500
-    ans += 1
-while True:
-    if m >= 100:
-        m -= 100
-        ans += 1
-    else:
-        break
-while True:
-    if m >= 50:
-        m -= 50
-        ans += 1
-    else:
-        break
-while True:
-    if m >= 10:
-        m -= 10
-        ans += 1
-    else:
-        break
-while True:
-    if m >= 5:
-        m -= 5
-        ans += 1
-    else:
-        break
-ans += m
+for i in range(n):
+    money = nList[i] - i
+    if money > 0:
+        ans += money
 print(ans)
-    
