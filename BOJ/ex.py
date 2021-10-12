@@ -1,21 +1,11 @@
-import sys
-input = sys.stdin.readline
-
-n,m = map(int,input().split())
-aList = []
-for i in range(n):
-    aList.append(int(input()))
-aList.sort() # 일단 정렬
-
-aDict = {}
-for i in range(n):
-    a = aList[i]
-    if a not in aDict.keys(): # 처음 들어왔으면 추가
-        aDict[a] = i
-
-for i in range(m):
-    d = int(input())
-    if d not in aDict.keys(): # 나오지 않았었다면
-        print(-1)
-    else:
-        print(aDict[d])
+for _ in range(int(input())):
+    al = list(input().split()) # 모든 울음소리들
+    while True:
+        st = input() # 문구
+        if st == 'what does the fox say?':
+            print(' '.join(al)) # 출력 만들기
+            break
+        st = list(st.split())
+        w = st[-1]
+        while w in al: # 울음소리 삭제해줌
+            al.remove(w)
