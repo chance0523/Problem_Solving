@@ -1,11 +1,17 @@
-for _ in range(int(input())):
-    al = list(input().split()) # 모든 울음소리들
-    while True:
-        st = input() # 문구
-        if st == 'what does the fox say?':
-            print(' '.join(al)) # 출력 만들기
-            break
-        st = list(st.split())
-        w = st[-1]
-        while w in al: # 울음소리 삭제해줌
-            al.remove(w)
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+k = 0
+nList = []
+
+for i in range(n):
+    nList.append(input().rstrip()[::-1]) # 귀찮으니까 뒤집어서 넣어준다
+
+for i in range(1, len(nList[0])+1): # 시간 충분.
+    nSet = set()
+    for j in range(n):
+        nSet.add(nList[j][:i])
+    if len(nSet) == n: # 중복되는게 없을때
+        print(i)
+        exit(0)

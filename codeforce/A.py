@@ -2,21 +2,27 @@ import sys
 input = sys.stdin.readline
 
 for _ in range(int(input())):
-    n,h =map(int,input().split())
-    nList = list(map(int,input().rstrip().split()))
-    nList.sort(reverse=True)
-    if h - nList[0] <= 0:
-        print(1)
-        continue
-    if h - nList[0] - nList[1] <= 0:
-        print(2)
-        continue
-    a = nList[0] + nList[1]
-    cnt = (h // a)*2
-    if h%a != 0:
-        if (h%a) - nList[0] <=0:
-            cnt += 1
-        elif (h%a) - nList[0] - nList[1] <= 0:
-            cnt+= 2
-    print(cnt)
-    
+    a,b,c = map(int,input().split())
+    M = max(a,b,c)
+    if M == a:
+        a1 = 0
+    else:
+        a1 = M - a  + 1
+    if M == b:
+        b1 = 0
+    else:
+        b1 = M - b  + 1
+    if M == c:
+        c1 = 0
+    else:
+        c1 = M - c  + 1
+    if a==b==M:
+        a1 = 1
+        b1 = 1
+    if b==c==M:
+        b1 = 1
+        c1 = 1
+    if c == a==M:
+        a1 = 1
+        c1= 1
+    print(a1,b1,c1)
