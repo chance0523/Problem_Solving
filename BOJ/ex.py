@@ -1,5 +1,5 @@
-n = int(input())
-nList = [float(input()) for _ in range(n)]
-for i in range(1, n):
-    nList[i] = max(nList[i], nList[i]*nList[i-1])
-print("%.3f" % (max(nList)))
+for _ in range(int(input())):
+    a,b = input().split()
+    a = int(a, 2) # 이진수를 십진수로
+    b = int(b, 2)
+    print(bin(a+b)[2:]) # 십진수를 이진수로. 앞에 b2는 잘라줌
