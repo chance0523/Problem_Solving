@@ -1,16 +1,17 @@
 import sys
 input = sys.stdin.readline
 
-sList =[]
-for i in range(3):
-    sList.append(input().rstrip())
-t = input().rstrip()
-ans = ''
-for i in range(len(t)):
-    if t[i] == '1':
-        ans += sList[0]
-    elif t[i] == '2':
-        ans += sList[1]
-    else:
-        ans += sList[2]
-print(ans)
+h,w = map(int,input().split())
+aList = [list(map(int,input().rstrip().split())) for i in range(h)]
+flag = True
+for i in range(h):
+    for j in range(w):
+        for p in range(h):
+            for q in range(w):
+                if i >= p or j >= q:
+                    continue
+                if aList[i][j] + aList[p][q] > aList[p][j] + aList[i][q]:
+                    flag = False
+                    print('No')
+                    exit()
+print('Yes')    

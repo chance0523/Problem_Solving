@@ -4,15 +4,12 @@
 부족한 점들은 양해 부탁드립니다.
 '''
 
-n = int(input())
-nList = [int(input()) for _ in range(n)]
-nList = nList[::-1] # 인덱스 탐색하기 쉽게 뒤집어준다
-M = nList[0] # 최대 난이도
+e,f,c = map(int,input().split())
+cur = e+f
 ans = 0
-for i in range(1, len(nList)):
-    if M <= nList[i]: # 감소시켜야 하는 경우
-        ans += nList[i] - (M - 1)
-        M -= 1
-    else: # 감소하지 않아도 되는 경우
-        M = nList[i]
+while True:
+    if cur < c: # 더이상 빈 병을 바꿀 수 없을 때
+        break
+    ans += cur//c # 빈 병을 새 병으로
+    cur = cur%c + cur//c # 바꾸지 못한 빈 병 + 바꿔진 새 병(이제는 비어진)
 print(ans)
