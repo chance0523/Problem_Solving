@@ -4,12 +4,8 @@
 부족한 점들은 양해 부탁드립니다.
 '''
 
-e,f,c = map(int,input().split())
-cur = e+f
-ans = 0
-while True:
-    if cur < c: # 더이상 빈 병을 바꿀 수 없을 때
-        break
-    ans += cur//c # 빈 병을 새 병으로
-    cur = cur%c + cur//c # 바꾸지 못한 빈 병 + 바꿔진 새 병(이제는 비어진)
-print(ans)
+n,l,h = map(int,input().split())
+nList = list(map(int,input().split()))
+nList.sort() # 낮은 점수, 높은 점수 빼주기 위해 정렬한다
+s = sum(nList[l:n-h]) # 이 범위에 있는 점수만 계산한다
+print(s / (n-l-h))
