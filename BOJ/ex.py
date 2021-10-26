@@ -4,8 +4,20 @@
 부족한 점들은 양해 부탁드립니다.
 '''
 
-n,l,h = map(int,input().split())
-nList = list(map(int,input().split()))
-nList.sort() # 낮은 점수, 높은 점수 빼주기 위해 정렬한다
-s = sum(nList[l:n-h]) # 이 범위에 있는 점수만 계산한다
-print(s / (n-l-h))
+import sys
+input = sys.stdin.readline
+
+
+n,m = map(int,input().split())
+flag = True
+for i in range(m):
+    k = int(input())
+    kList = list(map(int,input().rstrip().split()))
+    for j in range(k-1):
+        # 아래에 있는 책이 더 작은 숫자라면 꺼낼수가 없다.
+        if kList[j] < kList[j+1]:
+            flag = False
+if flag:
+    print('Yes')
+else:
+    print('No')
