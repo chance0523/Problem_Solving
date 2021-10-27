@@ -8,16 +8,16 @@ import sys
 input = sys.stdin.readline
 
 
-n,m = map(int,input().split())
-flag = True
-for i in range(m):
-    k = int(input())
-    kList = list(map(int,input().rstrip().split()))
-    for j in range(k-1):
-        # 아래에 있는 책이 더 작은 숫자라면 꺼낼수가 없다.
-        if kList[j] < kList[j+1]:
-            flag = False
-if flag:
-    print('Yes')
-else:
-    print('No')
+n, k = map(int,input().split())
+nList = [False for _ in range(n+1)]
+cnt = 0
+for i in range(2, n+1):
+    for j in range(i, n+1, i):
+        if nList[j]:
+            pass
+        else:
+            nList[j] = True # 지워준다
+            cnt += 1
+            if cnt == k:
+                print(j)
+                sys.exit()
