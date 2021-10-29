@@ -8,29 +8,20 @@ import sys
 input = sys.stdin.readline
 
 
-for t in range(int(input())):
+n = int(input())
+ans = 0
+# 선끼리 교차하지 않으려면 스택으로 바로바로...
+for _ in range(n):
     s = input().rstrip()
-    alpha = [0 for i in range(26)]
-    aa = ord('a') # 귀찮으니 미리 만들어주자
-    zz = ord('z')
-    AA = ord('A')
-    ZZ = ord('Z')
+    stack = []
     for i in range(len(s)):
-        if aa <= ord(s[i]) <= zz or AA <= ord(s[i]) <= ZZ: # 알파벳일때만
-            alpha[ord(s[i].lower()) - aa] += 1 # 헷갈리니 소문자로 바꿔놓고 계산
-
-    m = 1e9
-    for i in range(26):
-        m = min(m, alpha[i])
-
-    ans = f'Case {t+1}: '
-    if m == 1:
-        ans += 'Pangram!'
-    elif m == 2:
-        ans += 'Double pangram!!'
-    elif m == 3:
-        ans += 'Triple pangram!!!'
-    else:
-        ans += 'Not a pangram'
-
-    print(ans)
+        if not stack: # 스택이 비어있으면 일단 넣어준다
+            stack.append(s[i])
+        else:
+            if stack[-1] == s[i]: # 스택의 top과 같으면 pop
+                stack.pop()
+            else:
+                stack.append(s[i]) # 아니면 넣어준다
+    if not stack: # 스택이 비어있으면 좋은 단어
+        ans += 1
+print(ans)
