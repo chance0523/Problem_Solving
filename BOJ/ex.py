@@ -8,19 +8,15 @@ import sys
 input = sys.stdin.readline
 
 
-a = 0
-b = 0
-a += 3 * int(input())
-a += 2 * int(input())
-a += 1 * int(input())
+n, s = map(int,input().split())
 
-b += 3 * int(input())
-b += 2 * int(input())
-b += 1 * int(input())
+nList = []
+for i in range(n):
+    nList.append(int(input()))
 
-if a > b:
-    print('A')
-elif a < b:
-    print('B')
-else:
-    print('T')
+ans = 0
+for i in range(n-1):
+    for j in range(i + 1, n):
+        if nList[i] + nList[j] <= s:
+            ans += 1
+print(ans)
