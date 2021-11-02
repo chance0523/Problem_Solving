@@ -8,15 +8,16 @@ import sys
 input = sys.stdin.readline
 
 
-n, s = map(int,input().split())
+n = int(input())
+mod = 1000000000
 
-nList = []
-for i in range(n):
-    nList.append(int(input()))
+numbers = [2 ** i for i in range(25)]
+dp = [0 for i in range(n + 1)]
+dp[0] = 1
 
-ans = 0
-for i in range(n-1):
-    for j in range(i + 1, n):
-        if nList[i] + nList[j] <= s:
-            ans += 1
-print(ans)
+for num in numbers:
+    if num <= n:
+        for j in range(num, n+1):
+            dp[j] += dp[j-num]
+
+print(dp[n] % mod)
