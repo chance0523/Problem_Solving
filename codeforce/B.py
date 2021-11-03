@@ -2,14 +2,40 @@ import sys
 input = sys.stdin.readline
 
 for _ in range(int(input())):
-    nList = list(input().rstrip())
-    nList = nList[::-1]
-    # 00 25 50 75
-    ans = len(nList)
-    for i in range(len(nList)-1):
-        for j in range(i+1, len(nList)):
-            cur = nList[i] + nList[j]
-            if cur in ['00','52','05','57']:
-                ans = min(ans, i+(j-i-1))
+    x0, n = map(int,input().split())
+    if x0 % 2 == 0:
+        if n % 4 == 0:
+            print(x0)
+        elif n % 4 == 1:
+            print(x0 + (-1 - (n // 4) * 4))
+        elif n % 4 == 2:
+            print(x0 + 1)
+        else:
+            print(x0 + (4 + (n // 4) * 4))
+    else:
+        if n % 4 == 0:
+            print(x0)
+        elif n % 4 == 1:
+            print(x0 + (1 + (n // 4) * 4))
+        elif n % 4 == 2:
+            print(x0 - 1)
+        else:
+            print(x0 + (-4 - (n // 4) * 4))
+# nList = [2]
+# for i in range(1, 20):
+#     cur = nList[-1]
+#     if cur%2==0:
+#         nList.append(cur-i)
+#     else:
+#         nList.append(cur+i)
+# print(nList)
 
-    print(ans)
+# nList2 = [5]
+# for i in range(1, 20):
+#     cur = nList2[-1]
+#     if cur%2==0:
+#         nList2.append(cur-i)
+#     else:
+#         nList2.append(cur+i)
+# print(nList2)
+# print(987654321%4)

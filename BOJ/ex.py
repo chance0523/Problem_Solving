@@ -8,16 +8,22 @@ import sys
 input = sys.stdin.readline
 
 
-n = int(input())
-mod = 1000000000
+t = int(input())
+x = [0 for _ in range(t*2 + 1)]
+for i in range(1, t*2, 2):
+    x[i] = int(input())
 
-numbers = [2 ** i for i in range(25)]
-dp = [0 for i in range(n + 1)]
-dp[0] = 1
+m = 10001
+for a in range(m):
+    for b in range(m):
+        flag = True
+        for i in range(2, t*2+1, 2):
+            x[i] = (a*x[i-1] + b) % m
+            if i+1 <= t*2 and x[i+1] != (a*x[i] + b)%m:
+                flag = False
+                break
+        if flag:
+            for i in range(2, t*2+1, 2):
+                print(x[i])
+            sys.exit()
 
-for num in numbers:
-    if num <= n:
-        for j in range(num, n+1):
-            dp[j] += dp[j-num]
-
-print(dp[n] % mod)
