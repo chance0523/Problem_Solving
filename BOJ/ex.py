@@ -7,23 +7,23 @@
 import sys
 input = sys.stdin.readline
 
+# 유클리드 호제법
+def gcd(a,b) :
+    while b > 0 :
+        a, b = b, a%b
+    return a
 
-t = int(input())
-x = [0 for _ in range(t*2 + 1)]
-for i in range(1, t*2, 2):
-    x[i] = int(input())
+n = int(input())
+nList = list(map(int,input().rstrip().split()))
+m = int(input())
+mList = list(map(int,input().rstrip().split()))
 
-m = 10001
-for a in range(m):
-    for b in range(m):
-        flag = True
-        for i in range(2, t*2+1, 2):
-            x[i] = (a*x[i-1] + b) % m
-            if i+1 <= t*2 and x[i+1] != (a*x[i] + b)%m:
-                flag = False
-                break
-        if flag:
-            for i in range(2, t*2+1, 2):
-                print(x[i])
-            sys.exit()
+a = 1
+b = 1
+for i in range(n):
+    a *= nList[i]
+for i in range(m):
+    b *= mList[i]
 
+ans = gcd(a,b)
+print('%s'%str(ans)[-9:])
