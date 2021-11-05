@@ -7,23 +7,17 @@
 import sys
 input = sys.stdin.readline
 
-# 유클리드 호제법
-def gcd(a,b) :
-    while b > 0 :
-        a, b = b, a%b
-    return a
-
 n = int(input())
-nList = list(map(int,input().rstrip().split()))
-m = int(input())
-mList = list(map(int,input().rstrip().split()))
+cList = [int(input().rstrip()) for _ in range(n)]
+cList.sort(reverse=True) # 그냥 큰것들 묶어서 구매
 
-a = 1
-b = 1
+ans = 0
+
 for i in range(n):
-    a *= nList[i]
-for i in range(m):
-    b *= mList[i]
-
-ans = gcd(a,b)
-print('%s'%str(ans)[-9:])
+    if i%3==0:
+        ans += cList[i]
+    elif i%3==1:
+        ans += cList[i]
+    else: # 공짜
+        pass
+print(ans)
