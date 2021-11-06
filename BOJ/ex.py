@@ -8,16 +8,6 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-cList = [int(input().rstrip()) for _ in range(n)]
-cList.sort(reverse=True) # 그냥 큰것들 묶어서 구매
-
-ans = 0
-
-for i in range(n):
-    if i%3==0:
-        ans += cList[i]
-    elif i%3==1:
-        ans += cList[i]
-    else: # 공짜
-        pass
-print(ans)
+nList = [input().rstrip() for _ in range(n)]
+nList.sort(key=lambda x:float(x))
+print(nList[1])
