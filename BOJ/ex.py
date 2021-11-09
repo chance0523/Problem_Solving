@@ -7,24 +7,27 @@
 import sys
 input = sys.stdin.readline
 
-def isPalindrome(n):
-    s1 = str(n)
-    s2 = s1[::-1]
-    if s1 == s2:
-        return True
-    else:
-        return False
-
-def isPrime(n):
-    for i in range(2, int(n**0.5)+1):
-        if n%i==0:
-            return False
-    return True
-
-a,b = map(int,input().split())
-if b>11111111:
-    b = 11111111
-for i in range(a, b+1):
-    if isPalindrome(i) and isPrime(i):
-        print(i)
-print(-1)
+for _ in range(int(input())):
+    nList = list(input().rstrip())
+    ans = [0 for _ in range(8)]
+    for i in range(38):
+        temp = ''
+        for j in range(3):
+            temp += nList[i+j]
+        if temp == 'TTT':
+            ans[0] += 1
+        elif temp == 'TTH':
+            ans[1] += 1
+        elif temp == 'THT':
+            ans[2] += 1
+        elif temp == 'THH':
+            ans[3] += 1
+        elif temp == 'HTT':
+            ans[4] += 1
+        elif temp == 'HTH':
+            ans[5] += 1
+        elif temp == 'HHT':
+            ans[6] += 1
+        elif temp == 'HHH':
+            ans[7] += 1
+    print(*ans)
