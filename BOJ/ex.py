@@ -8,11 +8,12 @@ import sys
 input = sys.stdin.readline
 
 
-n = int(input())
-if n < 2:
-    print(1)
-else:
-    a, b = 1, 1
-    for i in range(n-1):
-        a, b = a + b + 1, a
-    print(a % 1000000007)
+n,m = map(int,input().split())
+kList = list(map(int,input().rstrip().split()))
+ans = 0
+for i in range(1, n+1):
+    for k in kList:
+        if i % k == 0:
+            ans += i
+            break
+print(ans)
