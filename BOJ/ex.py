@@ -8,22 +8,12 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-nList = list(map(int,input().rstrip().split()))
-nList.sort()
-l=0
-r=n-1
-m = nList[l]+nList[r]
-ans = [l, r]
-while l<r:
-    cur = nList[l] + nList[r]
-    if abs(cur) < abs(m):
-        m = cur
-        ans = [l,r]
-        if ans == 0:
-            break
-    if cur < 0:
-        l += 1
-    else:
-        r -= 1
-print(nList[ans[0]], nList[ans[1]])
+ans = 4
+a = 2
+b = 1
+for i in range(n):
+    a += b
+    ans = a ** 2
+    b *= 2
+print(ans)
             
