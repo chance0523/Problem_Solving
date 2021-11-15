@@ -7,13 +7,25 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-ans = 4
-a = 2
-b = 1
-for i in range(n):
-    a += b
-    ans = a ** 2
-    b *= 2
-print(ans)
-            
+
+'''
+홀수가 하나라도 있으면 홀수끼리 곱한 것이 답이다
+짝수만 있으면 짝수끼리 곱한 것이 답
+'''
+
+nList = list(map(int,input().rstrip().split()))
+odd = []
+for i in range(3):
+    if nList[i] % 2 != 0:
+        odd.append(nList[i])
+
+if odd:
+    ans = 1
+    for i in range(len(odd)):
+        ans *= odd[i]
+    print(ans)
+else:
+    ans = 1
+    for i in range(len(nList)):
+        ans *= nList[i]
+    print(ans)
