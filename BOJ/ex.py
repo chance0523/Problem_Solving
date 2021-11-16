@@ -7,14 +7,21 @@
 import sys
 input = sys.stdin.readline
 
+from itertools import combinations
 
-n = int(input())
+# n <= 20이라 모든 경우의 수를 구해줘도 된다.
+n,s = map(int, input().split())
 nList = list(map(int,input().rstrip().split()))
-dp = [0 for _ in range(n)]
-for i in range(1, n):
-    for k in range(1, i+2):
-        temp = nList[i-k+1:i+1]
-        if k == i+1:
-            k = i
-        dp[i] = max(dp[i], dp[i-k] + abs(max(temp)-min(temp)))
-print(dp[-1])
+cList = []
+for i in range(1, n+1): # 모든 조합
+    cList.extend(list(combinations([i for i in range(n)], i)))
+
+ans = 0
+for c in cList: # 각 조합마다 구해준다.
+    temp = 0
+    for i in range(len(c)):
+        temp += nList[c[i]]
+    if temp == s:
+        ans += 1
+
+print(ans)
