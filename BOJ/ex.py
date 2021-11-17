@@ -7,21 +7,17 @@
 import sys
 input = sys.stdin.readline
 
-from itertools import combinations
+nDict = {} # 확장자-횟수 저장
+nList = [] # 확장자를 저장
+for _ in range(int(input())):
+    s = input().rstrip().split('.')[1] # 확장자만 따온다
+    if s not in nDict.keys(): # 처음 나왔다면
+        nDict[s] = 1
+        nList.append(s)
+    else:
+        nDict[s] += 1
 
-# n <= 20이라 모든 경우의 수를 구해줘도 된다.
-n,s = map(int, input().split())
-nList = list(map(int,input().rstrip().split()))
-cList = []
-for i in range(1, n+1): # 모든 조합
-    cList.extend(list(combinations([i for i in range(n)], i)))
-
-ans = 0
-for c in cList: # 각 조합마다 구해준다.
-    temp = 0
-    for i in range(len(c)):
-        temp += nList[c[i]]
-    if temp == s:
-        ans += 1
-
-print(ans)
+nList.sort() # 사전순으로 정렬
+for i in range(len(nList)):
+    s = nList[i]
+    print(s, nDict[s])
