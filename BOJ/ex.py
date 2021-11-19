@@ -7,17 +7,28 @@
 import sys
 input = sys.stdin.readline
 
-nDict = {} # 확장자-횟수 저장
-nList = [] # 확장자를 저장
-for _ in range(int(input())):
-    s = input().rstrip().split('.')[1] # 확장자만 따온다
-    if s not in nDict.keys(): # 처음 나왔다면
-        nDict[s] = 1
-        nList.append(s)
-    else:
-        nDict[s] += 1
+def func(a, b, op):
+    if op == '+':
+        return a+b
+    elif op == '-':
+        return a-b
+    elif op == '*':
+        return a*b
+    elif op == '/':
+        return -1*(abs(a)//abs(b)) if a*b < 0 else a//b
 
-nList.sort() # 사전순으로 정렬
-for i in range(len(nList)):
-    s = nList[i]
-    print(s, nDict[s])
+sList = list(input().rstrip().split())
+a = int(sList[0])
+b = int(sList[2])
+c = int(sList[4])
+
+op1 = sList[1]
+op2 = sList[3]
+
+ans1 = func(func(a,b,op1), c, op2)
+ans2 = func(a, func(b, c, op2), op1)
+if ans1 > ans2: # 작은거부터 출력
+    ans1, ans2 = ans2, ans1
+
+print(ans1)
+print(ans2)
