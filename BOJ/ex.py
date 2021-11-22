@@ -7,18 +7,29 @@
 import sys
 input = sys.stdin.readline
 
+n = int(input())
+nList = list(map(int,input().rstrip().split()))
 s = input().rstrip()
-nList = [input().rstrip() for _ in range(int(input()))]
-nList.sort()
-ansP = 0
-ans = nList[0]
-for i in range(len(nList)):
-    L = s.count('L') + nList[i].count('L')
-    O = s.count('O') + nList[i].count('O')
-    V = s.count('V') + nList[i].count('V')
-    E = s.count('E') + nList[i].count('E')
-    p = ((L+O) * (L+V) * (L+E) * (O+V) * (O+E) * (V+E)) % 100
-    if ansP < p:
-        ansP = p
-        ans = nList[i]
-print(ans)
+aList = [0 for i in range(53)]
+for i in range(n):
+    aList[nList[i]] += 1
+
+sList = [0 for i in range(53)]
+for i in range(n):
+    if s[i] == ' ':
+        sList[0] += 1
+    elif ord('A') <= ord(s[i]) <= ord('Z'):
+        sList[ord(s[i]) - ord('A') + 1] += 1
+    else:
+        sList[ord(s[i]) - ord('a') + 27] += 1
+
+flag = True
+for i in range(len(sList)):
+    if aList[i] != sList[i]:
+        flag = False
+        break
+
+if flag:
+    print('y')
+else:
+    print('n')
