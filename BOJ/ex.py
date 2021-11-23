@@ -7,29 +7,13 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-nList = list(map(int,input().rstrip().split()))
-s = input().rstrip()
-aList = [0 for i in range(53)]
-for i in range(n):
-    aList[nList[i]] += 1
+a, b, c = map(int, input().split())
+check = False
 
-sList = [0 for i in range(53)]
-for i in range(n):
-    if s[i] == ' ':
-        sList[0] += 1
-    elif ord('A') <= ord(s[i]) <= ord('Z'):
-        sList[ord(s[i]) - ord('A') + 1] += 1
-    else:
-        sList[ord(s[i]) - ord('a') + 27] += 1
+for i in range(1, a):
+    temp = a * i + b * c
 
-flag = True
-for i in range(len(sList)):
-    if aList[i] != sList[i]:
-        flag = False
-        break
+    if temp ** 2 == ((a * a - b * b) * (a * a - c * c)):
+        check = i
 
-if flag:
-    print('y')
-else:
-    print('n')
+print(-1) if not check else print(check)
