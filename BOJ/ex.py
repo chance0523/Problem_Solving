@@ -7,23 +7,28 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-nList = [list(map(int,input().rstrip().split())) for _ in range(n)]
-nList.sort() # 이익이 최대인 가격 중 가장 낮은 가격 출력
+n, m = map(int,input().rstrip().split())
+if m != 0:
+    sList = list(map(int,input().rstrip().split()))
+else:
+    sList = []
 
-prices = []
-for i in range(n):
-    prices.append(nList[i][0])
+aList = [False for i in range(1002)]
+for s in sList:
+    aList[s] = True
 
-benefit = 0
-ans = 0
-for price in prices:
-    temp = 0
-    for j in range(n):
-        if nList[j][0] >= price:
-            if price - nList[j][1] > 0: # 세준이가 안 팔수도 있다
-                temp += (price - nList[j][1])
-    if benefit < temp:
-        benefit = temp
-        ans = price
+ans = int(1e9)
+for x in range(1, 1001):
+    if aList[x]:
+        continue
+    for y in range(x, 1001):
+        if aList[y]:
+            continue
+        for z in range(y, 1002):
+            if aList[z]:
+                continue
+            cur = x*y*z
+            ans = min(ans, abs(n-cur))
+            if n == cur:
+                break
 print(ans)
