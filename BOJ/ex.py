@@ -6,18 +6,11 @@
 
 import sys
 input = sys.stdin.readline
-from collections import deque
 
 n = int(input())
-q = deque(enumerate(map(int,input().rstrip().split())))
-ans = []
-
-while q:
-    idx, num = q.popleft()
-    ans.append(idx + 1)
-    if num > 0:
-        q.rotate(-(num - 1))
-    elif num < 0:
-        q.rotate(-num)
-
-print(*ans)
+if n == 0:
+    print('divide by zero')
+else:
+    nList = list(map(int,input().rstrip().split()))
+    ans = sum(nList)/n / (sum(nList)/n)
+    print("%.2f" % ans)
