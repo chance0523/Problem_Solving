@@ -8,6 +8,5 @@ import sys
 input = sys.stdin.readline
 
 n,w,h,l = map(int,input().split())
-ㅔ걋
-ans = min(n, w//l * h//l)
+ans = min(n, (w//l) * (h//l))
 print(ans)
