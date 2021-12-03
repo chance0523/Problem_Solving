@@ -7,6 +7,11 @@
 import sys
 input = sys.stdin.readline
 
-n,w,h,l = map(int,input().split())
-ans = min(n, (w//l) * (h//l))
-print(ans)
+s = input().rstrip().split()
+a = int(s[0])
+b = int(s[2])
+c = int(s[4])
+if a+b == c:
+    print('YES')
+else:
+    print('NO')
