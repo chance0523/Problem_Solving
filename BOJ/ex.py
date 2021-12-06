@@ -7,8 +7,17 @@
 import sys
 input = sys.stdin.readline
 
-x1, y1, x2, y2 = map(int, input().rstrip().split())
-x3, y3, x4, y4 = map(int, input().rstrip().split())
-x = max(x2, x4) - min(x1, x3)
-y = max(y2, y4) - min(y1, y3)
-print(max(x, y)**2)
+an = int(input())
+eye = int(input())
+ans = []
+if an >= 3 and eye <= 4:
+    ans.append('TroyMartian')
+if an <= 6 and eye >= 2:
+    ans.append('VladSaturnian')
+if an <= 2 and eye <= 3:
+    ans.append('GraemeMercurian')
+
+if ans:
+    for a in ans:
+        print(a)
+    
