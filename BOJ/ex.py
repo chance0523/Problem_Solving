@@ -7,17 +7,8 @@
 import sys
 input = sys.stdin.readline
 
-an = int(input())
-eye = int(input())
-ans = []
-if an >= 3 and eye <= 4:
-    ans.append('TroyMartian')
-if an <= 6 and eye >= 2:
-    ans.append('VladSaturnian')
-if an <= 2 and eye <= 3:
-    ans.append('GraemeMercurian')
-
-if ans:
-    for a in ans:
-        print(a)
-    
+n = input().rstrip()
+if n[:3] == '555':
+    print('YES')
+else:
+    print('NO')
