@@ -7,8 +7,12 @@
 import sys
 input = sys.stdin.readline
 
-n = input().rstrip()
-if n[:3] == '555':
-    print('YES')
+b = int(input())
+p = 5 * b - 400
+print(p)
+if p < 100:
+    print(1)
+elif p == 100:
+    print(0)
 else:
-    print('NO')
+    print(-1)
