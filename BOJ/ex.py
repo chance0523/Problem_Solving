@@ -7,12 +7,12 @@
 import sys
 input = sys.stdin.readline
 
-b = int(input())
-p = 5 * b - 400
-print(p)
-if p < 100:
+nList = list(map(int,input().rstrip().split()))
+nList.sort()
+a,b,c = nList[0], nList[1], nList[2]
+if a**2 + b**2 == c**2:
     print(1)
-elif p == 100:
-    print(0)
+elif a == b == c:
+    print(2)
 else:
-    print(-1)
+    print(0)
