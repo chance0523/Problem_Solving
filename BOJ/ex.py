@@ -7,12 +7,12 @@
 import sys
 input = sys.stdin.readline
 
-nList = list(map(int,input().rstrip().split()))
-nList.sort()
-a,b,c = nList[0], nList[1], nList[2]
-if a**2 + b**2 == c**2:
-    print(1)
-elif a == b == c:
-    print(2)
-else:
-    print(0)
+n = '9780921418' + input().rstrip() + input().rstrip() + input().rstrip()
+
+ans = 0
+for i in range(len(n)):
+    if i % 2:
+        ans += int(n[i]) * 3
+    else:
+        ans += int(n[i]) * 1
+print(f'The 1-3-sum is {ans}')
