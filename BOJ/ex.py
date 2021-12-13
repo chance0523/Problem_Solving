@@ -6,13 +6,13 @@
 
 import sys
 input = sys.stdin.readline
+from math import pi
 
-n = '9780921418' + input().rstrip() + input().rstrip() + input().rstrip()
-
-ans = 0
-for i in range(len(n)):
-    if i % 2:
-        ans += int(n[i]) * 3
-    else:
-        ans += int(n[i]) * 1
-print(f'The 1-3-sum is {ans}')
+a1, p1 = map(int,input().split())
+r1, p2 = map(int,input().split())
+a = p1/a1
+r = p2/(r1*r1*pi)
+if a < r:
+    print('Slice of pizza')
+else:
+    print('Whole pizza')
