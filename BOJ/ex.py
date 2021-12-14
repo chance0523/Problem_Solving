@@ -6,13 +6,7 @@
 
 import sys
 input = sys.stdin.readline
-from math import pi
 
-a1, p1 = map(int,input().split())
-r1, p2 = map(int,input().split())
-a = p1/a1
-r = p2/(r1*r1*pi)
-if a < r:
-    print('Slice of pizza')
-else:
-    print('Whole pizza')
+nList = list(map(int,input().rstrip().split()))
+nList.sort()
+print(nList[1])
