@@ -7,6 +7,10 @@
 import sys
 input = sys.stdin.readline
 
-nList = list(map(int,input().rstrip().split()))
-nList.sort()
-print(nList[1])
+x,y = map(int,input().split())
+ans = 1
+while True:
+    if y*ans - x*ans >= y:
+        break
+    ans += 1
+print(ans)
