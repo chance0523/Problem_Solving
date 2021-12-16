@@ -7,10 +7,6 @@
 import sys
 input = sys.stdin.readline
 
-x,y = map(int,input().split())
-ans = 1
-while True:
-    if y*ans - x*ans >= y:
-        break
-    ans += 1
-print(ans)
+n = float(input())
+ans = 100.0 / ((1.609344 / 3.785411784) * n)
+print("%.6f" % ans)
