@@ -7,6 +7,11 @@
 import sys
 input = sys.stdin.readline
 
-n = float(input())
-ans = 100.0 / ((1.609344 / 3.785411784) * n)
-print("%.6f" % ans)
+
+n = int(input())
+if n%2 == 1:
+    print(0)
+elif n//2 % 2 == 0:
+    print(2)
+else:
+    print(1)
