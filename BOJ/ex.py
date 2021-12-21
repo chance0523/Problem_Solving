@@ -7,8 +7,6 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-k = int(input())
-x = min(k + 60, n)
-res = x*1500 + (n-x)*3000
-print(res) 
+nList = list(map(int,input().rstrip().split()))
+nList.sort()
+print(nList[1]+nList[2])
