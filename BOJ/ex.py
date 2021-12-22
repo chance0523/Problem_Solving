@@ -9,4 +9,7 @@ input = sys.stdin.readline
 
 nList = list(map(int,input().rstrip().split()))
 nList.sort()
-print(nList[1]+nList[2])
+if nList[0] == nList[1] or nList[1] == nList[2] or nList[0]+nList[1] == nList[2]:
+    print('S')
+else:
+    print('N')
