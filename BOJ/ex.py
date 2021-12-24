@@ -7,5 +7,11 @@
 import sys
 input = sys.stdin.readline
 
-k, w, m = map(int, input().split())
-print((w-k)//m + (1 if (w-k)%m else 0))
+x, l, r = map(int, input().split())
+ans = 0
+m = 1e9
+for i in range(l, r+1):
+    if abs(x-i) < m:
+        m = abs(x-i)
+        ans = i
+print(ans)
