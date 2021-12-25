@@ -7,11 +7,6 @@
 import sys
 input = sys.stdin.readline
 
-x, l, r = map(int, input().split())
-ans = 0
-m = 1e9
-for i in range(l, r+1):
-    if abs(x-i) < m:
-        m = abs(x-i)
-        ans = i
+w, h = map(int, input().split())
+ans = w+h - (w**2 + h**2)**0.5
 print(ans)
