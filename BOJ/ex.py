@@ -7,6 +7,10 @@
 import sys
 input = sys.stdin.readline
 
-w, h = map(int, input().split())
-ans = w+h - (w**2 + h**2)**0.5
-print(ans)
+A1 = int(input())
+A2 = int(input())
+A3 = int(input())
+r1 = A2*2 + A3*4
+r2 = A1*2 + A3*2
+r3 = A1*4 + A2*2
+print(min(r1, r2, r3))
