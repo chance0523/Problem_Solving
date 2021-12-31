@@ -7,19 +7,22 @@
 import sys
 input = sys.stdin.readline
 
-nList = [int(input()) for _ in range(4)]
-r = 0
-for i in range(3):
-    if nList[i+1] > nList[i]:
-        r += 1
-    elif nList[i+1] < nList[i]:
-        r -= 1
+pList = [False for _ in range(1000)]
+pList[0] = True
+pList[1] = True
+for i in range(2, 1000):
+    for j in range(i+i, 1000, i):
+        pList[j] = True
+primes = []
+for i in range(len(pList)):
+    if not pList[i]:
+        primes.append(i)
+muls = []
+for i in range(len(primes)-1):
+    muls.append(primes[i] * primes[i+1])
 
-if len(set(nList)) == 1: 
-    print("Fish At Constant Depth")
-elif r == 3:
-    print("Fish Rising")
-elif r == -3:    
-    print("Fish Diving")
-else:
-    print("No Fish")
+n = int(input())
+for i in range(len(muls)):
+    if muls[i] > n:
+        print(muls[i])
+        break
