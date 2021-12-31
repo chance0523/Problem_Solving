@@ -7,10 +7,19 @@
 import sys
 input = sys.stdin.readline
 
-N = int(input())
-if N%4 == 0:
-    print("Even")
-elif N%2 == 0:
-    print("Odd")
+nList = [int(input()) for _ in range(4)]
+r = 0
+for i in range(3):
+    if nList[i+1] > nList[i]:
+        r += 1
+    elif nList[i+1] < nList[i]:
+        r -= 1
+
+if len(set(nList)) == 1: 
+    print("Fish At Constant Depth")
+elif r == 3:
+    print("Fish Rising")
+elif r == -3:    
+    print("Fish Diving")
 else:
-    print("Either")
+    print("No Fish")
