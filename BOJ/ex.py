@@ -7,22 +7,9 @@
 import sys
 input = sys.stdin.readline
 
-pList = [False for _ in range(1000)]
-pList[0] = True
-pList[1] = True
-for i in range(2, 1000):
-    for j in range(i+i, 1000, i):
-        pList[j] = True
-primes = []
-for i in range(len(pList)):
-    if not pList[i]:
-        primes.append(i)
-muls = []
-for i in range(len(primes)-1):
-    muls.append(primes[i] * primes[i+1])
-
-n = int(input())
-for i in range(len(muls)):
-    if muls[i] > n:
-        print(muls[i])
-        break
+p1, q1, p2, q2 = map(int, input().split())
+ans = p1/q1 * p2/q2 / 2
+if int(ans) == ans:
+    print(1)
+else:
+    print(0)
