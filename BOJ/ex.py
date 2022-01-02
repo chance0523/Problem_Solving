@@ -7,9 +7,6 @@
 import sys
 input = sys.stdin.readline
 
-p1, q1, p2, q2 = map(int, input().split())
-ans = p1/q1 * p2/q2 / 2
-if int(ans) == ans:
-    print(1)
-else:
-    print(0)
+a = int(input())
+ans = a**0.5 * 4
+print(ans)
