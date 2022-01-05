@@ -7,8 +7,23 @@
 import sys
 input = sys.stdin.readline
 
-a,b = map(int,input().split())
-if a%2 and b%2:
-    print(min(a,b))
+a,b,c = map(int,input().split())
+one = 0
+two = 0
+if a == 1:
+    one += 1
 else:
-    print(0)
+    two += 1
+if b == 1:
+    one += 1
+else:
+    two += 1
+if c == 1:
+    one += 1
+else:
+    two += 1
+
+if one > two:
+    print(1)
+else:
+    print(2)
