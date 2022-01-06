@@ -7,23 +7,12 @@
 import sys
 input = sys.stdin.readline
 
-a,b,c = map(int,input().split())
-one = 0
-two = 0
-if a == 1:
-    one += 1
+a,p = map(int,input().split())
+a *= 7
+p *= 13
+if a > p:
+    print('Axel')
+elif a < p:
+    print('Petra')
 else:
-    two += 1
-if b == 1:
-    one += 1
-else:
-    two += 1
-if c == 1:
-    one += 1
-else:
-    two += 1
-
-if one > two:
-    print(1)
-else:
-    print(2)
+    print('lika')
