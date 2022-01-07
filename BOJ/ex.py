@@ -7,12 +7,6 @@
 import sys
 input = sys.stdin.readline
 
-a,p = map(int,input().split())
-a *= 7
-p *= 13
-if a > p:
-    print('Axel')
-elif a < p:
-    print('Petra')
-else:
-    print('lika')
+n, h, v = map(int, input().split())
+ans = max(h, n-h) * max(v, n-v)
+print(ans*4)
