@@ -7,7 +7,6 @@
 import sys
 input = sys.stdin.readline
 
-S = int(input())
-M = int(input())
-L = int(input())
-print("happy" if S*1 + M*2 + L*3 >= 10 else "sad")
+a,b,x,y = map(int,input().split())
+ans = min(abs(a - b), min(abs(a - x) + abs(b - y), abs(a - y) + abs(b - x)))
+print(ans)
