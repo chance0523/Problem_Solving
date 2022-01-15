@@ -7,6 +7,7 @@
 import sys
 input = sys.stdin.readline
 
-a,b,x,y = map(int,input().split())
-ans = min(abs(a - b), min(abs(a - x) + abs(b - y), abs(a - y) + abs(b - x)))
-print(ans)
+from math import pi
+
+n = int(input())
+print((n/pi)**0.5*2*pi)
