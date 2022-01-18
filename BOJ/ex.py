@@ -7,6 +7,11 @@
 import sys
 input = sys.stdin.readline
 
-a = int(input())
-print(a**0.5 * 4)
+a, b = map(int, input().split())
+if a == b == 0:
+    print("Not a moose")
+elif a != b:
+    print(f"Odd {max(a, b)*2}")
+elif a == b:
+    print(f"Even {b*2}")
     
