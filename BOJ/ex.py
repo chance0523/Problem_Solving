@@ -7,11 +7,12 @@
 import sys
 input = sys.stdin.readline
 
-a, b = map(int, input().split())
-if a == b == 0:
-    print("Not a moose")
-elif a != b:
-    print(f"Odd {max(a, b)*2}")
-elif a == b:
-    print(f"Even {b*2}")
-    
+x, k = map(int, input().split())
+if k*7 <= x:
+    print(k*7000)
+elif k*3.5 <= x:
+    print(k*3500)
+elif k*1.75 <= x:
+    print(k*1750)
+else:
+    print(0)
