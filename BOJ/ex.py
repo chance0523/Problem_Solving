@@ -7,12 +7,12 @@
 import sys
 input = sys.stdin.readline
 
-x, k = map(int, input().split())
-if k*7 <= x:
-    print(k*7000)
-elif k*3.5 <= x:
-    print(k*3500)
-elif k*1.75 <= x:
-    print(k*1750)
-else:
-    print(0)
+a,b = map(int,input().split())
+m = a//b
+n = a%b
+
+if a != 0 and b < 0:
+    m += 1
+    n -= b
+print(m)
+print(n)
