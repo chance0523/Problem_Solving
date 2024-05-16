@@ -1,0 +1,15 @@
+class Solution {
+    public int solution(int a, int b) {
+        int answer = 0;
+        int ab2 = 2*a*b;
+        String strA = Integer.toString(a);
+        String strB = Integer.toString(b);
+        int ab = Integer.parseInt(strA+strB);
+        if (ab2 > ab) {
+            return ab2;
+        }
+        else {
+            return ab;
+        }
+    }
+}
